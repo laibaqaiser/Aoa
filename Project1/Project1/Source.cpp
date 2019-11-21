@@ -10,7 +10,7 @@ int main() {
 
 
 	string a;
-	cout << "enter";
+	cout << "enter  the string";
 	cin >> a;
 	unordered_map<char, int> freq;
 	for (int i = file.begin();i != file.end();i++)
