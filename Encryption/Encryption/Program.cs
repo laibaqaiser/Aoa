@@ -10,9 +10,7 @@ namespace Encryption
     {
         static void Main(string[] args)
         {
-            string testString;
-            Console.Write("Enter a string - ");
-            testString = Console.ReadLine();
+            string testString= System.IO.File.ReadAllText(@"C:\Users\MAHNOOR\Desktop\Encryption\Aoa\Encryption\Encryption\code.txt");
             Dictionary<char, int> frequency = new Dictionary<char, int>();
             for(int i =0;i< testString.Length;i++)
             {
