@@ -8,7 +8,6 @@ namespace Encryption
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
             HuffmanTree huffmantree = new HuffmanTree();

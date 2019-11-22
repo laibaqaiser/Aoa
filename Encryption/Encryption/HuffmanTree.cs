@@ -75,6 +75,7 @@ namespace Encryption
                     parentNode.Letter = 'p';
                     parentNode.Frequency = element1.Frequency + element2.Frequency;
                     parentNode.Left = element1;
+                    parentNode.Right = element2;
                     nodes.Add(parentNode);
                     nodes.Remove(element1);
                     nodes.Remove(element2);
