@@ -12,7 +12,6 @@ namespace Encryption
         private int frequency;
         private Nodes left;
         private Nodes right;
-<<<<<<< HEAD
         public List<bool> PrintTree(char letter, List<bool> data)
         {
             if (Left == null && Right == null)
@@ -39,10 +38,6 @@ namespace Encryption
                     leftPath.AddRange(data);
                     leftPath.Add(false);
                     left = Left.PrintTree(letter, leftPath);
-=======
->>>>>>> 44f65a0ddd3604b75482c1fcd66ec9567990a75e
-
-
                 }
                 if (Right != null)
                 {
@@ -114,6 +109,4 @@ namespace Encryption
             }
         }
     }
-
-
-    }
+ }
