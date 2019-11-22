@@ -12,6 +12,8 @@ namespace Encryption
     {
         private char letter;
         private int frequency;
+        private Nodes left;
+        private Nodes right;
 
         public char Letter
         {
@@ -39,5 +41,30 @@ namespace Encryption
             }
         }
 
+        internal Nodes Left
+        {
+            get
+            {
+                return left;
+            }
+
+            set
+            {
+                left = value;
+            }
+        }
+
+        internal Nodes Right
+        {
+            get
+            {
+                return right;
+            }
+
+            set
+            {
+                right = value;
+            }
+        }
     }
 }

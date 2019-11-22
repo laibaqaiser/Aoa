@@ -11,7 +11,7 @@ namespace Encryption
         static void Main(string[] args)
         {
             HuffmanTree huffmantree = new HuffmanTree();
-            string testString = System.IO.File.ReadAllText(@"");
+            string testString = System.IO.File.ReadAllText(@"C:\Users\Muhammad Muzzamil\Documents\AoaProject\Aoa\Encryption\Encryption\code.txt");
             huffmantree.tree(testString);
         }
     }

@@ -12,6 +12,21 @@ namespace Encryption
 
         Nodes n = new Nodes();
         private List<Nodes> nodes = new List<Nodes>();
+        private Nodes root;
+
+        internal Nodes Root
+        {
+            get
+            {
+                return root;
+            }
+
+            set
+            {
+                root = value;
+            }
+        }
+
         public void tree(string testString)
         {
 
@@ -37,10 +52,31 @@ namespace Encryption
                 n.Frequency = letter.Value;
                 nodes.Add(n);
             }
-            List<Nodes> orderedNodes = nodes.OrderBy(nodes => nodes.Frequency).ToList<Nodes>();
+
+            
+                while(nodes.Count > 1)
+             {
+                List<Nodes> orderedNodes = nodes.OrderBy(nodes => nodes.Frequency).ToList<Nodes>();
+                if (orderedNodes.Count >= 2)
+                {
+                    var element1 = orderedNodes[0];
+                    var element2 = orderedNodes[1];
+                    Nodes parentNode = new Nodes();
+                    parentNode.Letter = 'p';
+                    parentNode.Frequency = element1.Frequency + element2.Frequency;
+                    parentNode.Left = element1;
+                    parentNode.Right = element2;
+
+                    nodes.Add(parentNode);
+                    nodes.Remove(element1);
+                    nodes.Remove(element2);
+                }
+                this.Root = nodes.FirstOrDefault();
+            }
+            
 
             int p1 = 0;
-            foreach (Nodes n in orderedNodes)
+            foreach (Nodes n in nodes)
             {
                 Console.Write("At Position {0}: ", p1);
                 Console.WriteLine(n.Letter);
