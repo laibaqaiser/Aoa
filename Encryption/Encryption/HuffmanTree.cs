@@ -20,11 +20,48 @@ namespace Encryption
                 List<bool> e = this.Root.PrintTree(v, new List<bool>());
                 encoding.AddRange(e);
             }
+            Console.WriteLine("");
+            Console.Write("Encoded: ");
             foreach (var v in encoding)
             {
-                Console.Write((v ? 1 : 0) + "");
+                if (v == true)
+                {
+                    Console.Write('1');
+                }
+                else
+                {
+                    Console.Write('0');
+                }
             }
 
+        }
+        public void Decoding()
+        {
+            Nodes currentNode = this.Root;
+            string Decode = "";
+            foreach (var v in encoding)
+            {
+                if (v)
+                {
+                    if (currentNode.Right != null)
+                    {
+                        currentNode = currentNode.Right;
+                    }
+                }
+                else
+                {
+                    currentNode = currentNode.Left;
+                }
+
+                if (currentNode.Left == null && currentNode.Right == null)
+                {
+                    Decode += currentNode.Letter;
+                    currentNode = this.root;
+                }
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Decoded: " + Decode);
         }
 
         internal Nodes Root
@@ -51,10 +88,10 @@ namespace Encryption
                 }
                 frequencyTable[testString[i]]++;
             }
-            foreach (var value in frequencyTable.Values)
+           /* foreach (var value in frequencyTable.Values)
             {
-                Console.WriteLine("Value of the Dictionary Item is: {0}", value);
-            }
+                Console.WriteLine("Value of the letter is: {0}", value);
+            }*/
             Console.WriteLine("You entered '{0}'", testString);
 
             foreach (KeyValuePair<char, int> letter in frequencyTable)
@@ -83,14 +120,15 @@ namespace Encryption
                 this.Root = nodes.FirstOrDefault();
             }
 
-            int p1 = 0;
+            /*int p1 = 0;
             foreach (Nodes n in nodes)
             {
                 Console.Write("At Position {0}: ", p1);
                 Console.WriteLine(n.Letter);
+                Console.Write("Frequency of root node is ");
                 Console.WriteLine(n.Frequency);
                 p1++;
-            }
+            }*/
         }
 
     }

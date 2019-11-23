@@ -14,7 +14,7 @@ namespace Encryption
             string testString = System.IO.File.ReadAllText(@"C:\Users\MAHNOOR\Desktop\Encryption\Aoa\Encryption\Encryption\code.txt");
             huffmantree.tree(testString);
             huffmantree.Encoding(testString);
-
+            huffmantree.Decoding();
         }
     }
 }
