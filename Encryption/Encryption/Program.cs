@@ -15,15 +15,23 @@ namespace Encryption
             huffmantree.tree(testString);
             huffmantree.Encoding(testString);
             Console.WriteLine("");
-            Console.Write("Enter key to decode ");
-            string key = Console.ReadLine();
-            if (key == "123")
+            Console.WriteLine("You have 3 attempts to decode");
+            int tries = 1;
+            while (tries <= 3)
             {
-                huffmantree.Decoding();
-            }
-            else
-            {
-                Console.WriteLine("Invalid key!!!");
+                Console.Write("Enter key to decode ");
+                string key = Console.ReadLine();
+                if (key == "123")
+                {
+                    Console.Write("You entered a valid key.");
+                    huffmantree.Decoding();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("You entered an Invalid key!!!");
+                    tries++;
+                }
             }
         }
     }
